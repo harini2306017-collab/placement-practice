@@ -1,0 +1,404 @@
+1.
+#include <stdio.h>
+
+int main()
+{
+    int n;
+    scanf("%d",&n);
+    int itr;
+    itr=1;
+    while(itr<=n)
+    {
+
+        printf("%d ",itr);
+        itr=itr+2;
+    }
+
+    return 0;
+}
+output:
+10
+1 3 5 7 9
+
+2.
+#include <stdio.h>
+
+int main()
+{
+    int n;
+    scanf("%d",&n);
+    int itr,even=0,odd=0;
+    itr=1;
+    while(itr<=n)
+    {
+        if(itr%2==0)
+            {
+                even+=1;
+            }
+        else
+        {
+            odd+=1;
+        }
+        itr=itr+1;
+    }
+    printf("Even=%d\n Odd=%d",even,odd);
+
+    return 0;
+}
+output:
+20
+Even=10
+ Odd=10
+
+3.
+#include <stdio.h>
+
+int main()
+{
+    int n;
+    scanf("%d",&n);
+    int itr;
+    itr=n;
+    while(itr>=1)
+    {
+
+        printf("%d ",itr);
+        itr=itr-1;
+    }
+
+    return 0;
+}
+output:
+10
+10 9 8 7 6 5 4 3 2 1
+
+3.
+#include <stdio.h>
+
+int main()
+{
+    int n;
+    scanf("%d",&n);
+    long long fact=1;
+    int itr=1;
+    while(itr<=n)
+    {
+        fact=fact*itr; //fact*=itr;
+        itr+=1;
+
+
+    }
+
+        printf("%lld",fact); (25 factorial size in binary is more than 64 bit)
+
+    return 0;
+}
+output:
+5
+120
+
+4.
+#include <stdio.h>
+
+int main()
+{
+    int n;
+    scanf("%d",&n);
+    int itr;
+    for(itr=1;itr<=n;itr+=1)  //for(itr=1;itr<=n;printf("%d ",itr),itr+=1);
+        printf("%d ",itr);
+}
+output:
+10
+1 2 3 4 5 6 7 8 9 10
+
+5.
+#include <stdio.h>
+
+int main()
+{
+    int n;
+    scanf("%d",&n);
+    int itr=1;
+    do
+    {
+        printf("%d ",itr);
+        itr+=1;
+    }while(itr<=n);
+
+    return 0;
+}
+output:
+10
+1 2 3 4 5 6 7 8 9 10
+
+6.
+#include <stdio.h>
+#include <stdlib.h>
+
+int main()
+{
+    int n;
+    scanf("%d",&n); //145
+    int temp=n;
+    int fact,sum=0;
+    while(n!=0)  //145!=0  14!=0  1!=0
+    {
+        int dig=n%10; //dig=5 4
+        fact=1;
+        for (int itr=1;itr<=dig;itr+=1)  // 1 2 3 4 5  5    1 2 3 4  4   1  1
+            fact*=itr;  //120  24 1
+        n/=10;//14  1 0
+        sum+=fact;//0=0+120=120   120+24=144  120+24+1=145
+    }
+
+    if(sum==temp)
+      printf("strong");
+    else
+      printf("not");
+       return 0;
+}
+output:
+145
+strong
+100
+not
+
+7.
+#include <stdio.h>
+#include <stdlib.h>
+
+int main()
+{
+    int n;
+    scanf("%d",&n);
+    int pow=1;
+    while(n!=0)
+    {
+        pow*=10;
+        n/=10;
+    }
+    printf("%d",pow);
+    return 0;
+}
+output:
+12345
+100000
+
+8.
+#include <stdio.h>
+#include <stdlib.h>
+
+int main()
+{
+    int n;
+    scanf("%d",&n);
+    int pow=1;
+    while(n!=0) //while(n>=9)
+    {
+        pow*=10;
+        n/=10;
+    }
+    pow/=10;
+    printf("%d",pow);
+    return 0;
+}
+output:
+12345
+10000
+
+9.
+#include <stdio.h>
+#include <stdlib.h>
+
+int main()
+{
+    int n;
+    scanf("%d",&n);
+    int pow=1;
+    int temp=n;
+    //max power value
+    while(n>=9)
+    {
+        pow*=10;
+        n/=10;
+    }
+    printf("%d",n);
+    //digit seggregation
+
+    while(pow!=0)
+    {
+        printf("%d ",temp/pow);
+        temp%=pow;
+        pow/=10;
+    }
+    return 0;
+}
+output:
+12345
+11 2 3 4 5
+
+10.
+#include <stdio.h>
+#include <stdlib.h>
+
+int main()
+{
+    int n;
+    scanf("%d",&n);
+    int pow=1;
+    int temp=n;
+    //max power value
+    while(n>=9)
+    {
+        pow*=10;
+        n/=10;
+    }
+    printf("%d",n);
+    //digit seggregation
+
+    while(temp!=0)
+    {
+        if((temp/pow)%2!=0)
+           printf("%d ",temp/pow);
+        temp%=pow;
+        pow/=10;
+    }
+    return 0;
+}
+output:
+12345
+11 3 5
+
+11.
+#include <stdio.h>
+#include <stdlib.h>
+
+int main()
+{
+    int n;
+    scanf("%d",&n);
+    int rev=0;
+    while(n!=0)
+    {
+        rev=(10*rev)+n%10;
+        n/=10;
+    }
+    printf("%d",rev);
+
+    return 0;
+}
+output:
+12345
+54321
+
+#include<stdio.h>
+void main()
+{
+    int num;
+    int itr;
+        scanf("%d",&num);
+        for(int itr=1;itr<=num;itr+=1)
+        {
+            if(itr==5)
+                continue;
+            printf("%d\t",itr);
+        }
+}
+
+
+
+ int a,b;
+     scanf("%d %d",&a,&b);
+     int itr;
+     int sum1=0,sum2=0;
+     for(itr=1;itr<=a/2;itr+=1)
+     {
+         if(a%itr==0)
+            sum1+=itr;
+     }
+     for(itr=1;itr<=b/2;itr+=1)
+     {
+         if(b%itr==0)
+            sum2+=itr;
+     }
+     if(sum1==b && sum2==a)
+     {
+         printf("amicable");
+     }
+     else
+        printf("not");
+
+}
+#include<stdio.h>
+int main()
+{
+    int n,row,col;
+    scanf("%d",&n);
+    for(row = 1;row<=n;row++)
+    {
+        for(int space=1;space<=n-row;space++)
+            printf("   ");
+        for(int star=1;star<=(2*row-1);star++)
+            printf(" * ");
+        printf("\n");
+    }
+    return 0;
+}
+#include<stdio.h>
+void main()
+{
+
+    int size,itr,sum=0;
+    scanf("%d",&size);
+    int arr[size];
+    for(itr=0;itr<size;itr+=1)
+        scanf("%d",&arr[itr]);
+    for(itr=0;itr<size;itr+=1)
+    {
+        arr[itr]=sum+arr[itr];
+        sum=arr[itr];
+    }
+     for(itr=0;itr<size;itr+=1)
+        printf("%d\t",arr[itr]);
+}
+include<stdio.h>
+void main()
+{
+    int row ,col,sum=0;
+    scanf("%d%d",&row,&col);
+    int arr[row][col],i,j;
+    for(i=0;i<row;i+=1)
+    {
+        for(j=0;j<col;j+=1)
+           scanf("%d",&arr[i][j]);
+    }
+    for(i=0;i<row;i+=1)
+    {
+        for(j=0;j<col;j+=1)
+        {
+            sum+=arr[i][j];
+        }
+    }
+
+    printf("%d",sum);
+}
+#include<stdio.h>
+long long int factorial(int num)
+{
+
+    if(num==0 || num==1)
+        return 1;
+    return num*factorial(num-1);
+}
+int main()
+{
+    int num;
+    scanf("%d",&num);
+    printf("%lld",factorial(num));
+}
+
+
+
+
+
